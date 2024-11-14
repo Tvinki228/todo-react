@@ -1,25 +1,34 @@
 import "./App.css";
+import React, { useState, useEffect } from "react";
 import { Header } from "./components/Header/Header";
-
-const TodoList = () => {
-    const todos = ["My first todo", "My second todo"];
-    return (
-        <ul>
-            {todos.map((todo) => (
-                <li>
-                    <input type="checkbox" /> {todo}
-                </li>
-            ))}
-        </ul>
-    );
-};
+import { Form } from "./components/Form/Form";
+import { TodoList } from "./components/TodoList/TodoList";
 
 function App() {
+    const [todos, setTodos] = useState(() => {
+        const savedTodos = localStorage.getItem("todos");
+        return savedTodos ? JSON.parse(savedTodos) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos]);
+
+    const addTodo = (newTodo) => {
+        setTodos([...todos, newTodo]);
+    };
+
+    const removeTodo = (index) => {
+        const updatedTodos = todos.filter((_, i) => i !== index);
+        setTodos(updatedTodos);
+    };
+
     return (
-        <>
+        <div className="container">
             <Header />
-            <TodoList />
-        </>
+            <Form addTodo={addTodo} />
+            <TodoList todos={todos} removeTodo={removeTodo} />
+        </div>
     );
 }
 
