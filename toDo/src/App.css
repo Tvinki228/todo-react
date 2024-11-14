@@ -9,6 +9,7 @@ body {
     font-weight: 600;
     font-style: normal;
     height: 100vh;
+    background-color: #d18282;
     background-image: url("./assets/background.png");
     background-size: cover;
     background-position: center;
@@ -34,5 +35,3 @@ li {
     justify-content: space-around;
     gap: 20px;
 }
-
-
