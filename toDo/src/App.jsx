@@ -1,10 +1,10 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Header } from "./components/Header/Header";
-import { Form } from "./components/Form/Form";
-import { TodoList } from "./components/TodoList/TodoList";
+import { Header } from "./components/Header";
+import { Form } from "./components/Form";
+import { TodoList } from "./components/TodoList";
 
-function App() {
+const App = () => {
     const [todos, setTodos] = useState(() => {
         const savedTodos = localStorage.getItem("todos");
         return savedTodos ? JSON.parse(savedTodos) : [];
@@ -30,6 +30,6 @@ function App() {
             <TodoList todos={todos} removeTodo={removeTodo} />
         </div>
     );
-}
+};
 
 export default App;

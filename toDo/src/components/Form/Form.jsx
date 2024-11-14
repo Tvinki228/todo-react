@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import "./Form.css";
 
 export const Form = ({ addTodo }) => {
     const [inputValue, setInputValue] = useState("");
@@ -24,7 +25,9 @@ export const Form = ({ addTodo }) => {
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Write a new todo"
                 />
-                <button className="form-button" type="submit">Add todo</button>
+                <button className="form-button" type="submit">
+                    Add todo
+                </button>
             </form>
         </div>
     );
