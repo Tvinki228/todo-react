@@ -1,7 +1,7 @@
 {
     "name": "todo",
     "private": true,
-    "homepage": "https://Tvinki228.github.io/todo-react/toDo",
+    "homepage": "https://Tvinki228.github.io/todo-react",
     "version": "0.0.0",
     "type": "module",
     "scripts": {
